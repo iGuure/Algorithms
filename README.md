@@ -1,2 +1,2 @@
 # Algorithms
-Algorithm practices
+Some algorithm practices in Java.
