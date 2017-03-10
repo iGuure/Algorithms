@@ -5,13 +5,11 @@ public class ImprovedFibonacci {
 	}
 
 	public static long Fib(int N, long[] f) {
-	    if (f[N] == 0)
-	    {
-	        if (N == 1)
-	            f[N] = 1;
-	        else if (N > 1)
-	            f[N] = Fib(N-1, f) + Fib(N-2, f);
-	    }
+
+		if (N == 1)	return 1;
+		if (N == 0)	return 0;
+
+	    if (f[N] == 0)	f[N] = Fib(N-1, f) + Fib(N-2, f);
 	    
 	    return f[N];
 	}
