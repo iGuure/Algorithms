@@ -7,7 +7,7 @@
 2.创建递归函数b，通过a将数组作为参数传进b。先判断是否基本情况，如果是则直接返回值；再判断对应数组中的值是否已被修改，如果没被修改，则相应的值等于递归函数b的调用，然后返回相应的值。
 
 */
-public class Ex_1_1_27b
+public class ImprovedFibonacci2
 {
     public static double binomial(int n, int k, double p, Counter c)
     {
