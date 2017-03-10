@@ -5,7 +5,6 @@ public class ImprovedFibonacci {
 	}
 
 	public static long Fib(int N, long[] f) {
-
 		if (N == 1)	return 1;
 		if (N == 0)	return 0;
 
