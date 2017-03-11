@@ -98,6 +98,34 @@ public class Sort {
 		}
 	}
 
+	public static void quickSort(double[] d) {
+		quickSort(d, 0, d.length - 1);
+	}
+
+	public static void quickSort(double[] d, int lo, int hi) {
+		if (lo >= hi)	return;
+		int p = partion(d, lo, hi);
+		quickSort(d, lo, p - 1);
+		quickSort(d, p + 1, hi);
+	}
+
+	public static int partion(double[] d, int lo, int hi) {
+		int i = lo, j = hi + 1;
+		double v = d[lo], temp;
+		while (true) {
+			while (d[++i] < v)	if (i == hi)	break;
+			while (d[--j] > v)	if (j == lo)	break;
+			if (i >= j)	break;
+			temp = d[i];
+			d[i] = d[j];
+			d[j] = temp;
+		}
+		temp = d[lo];
+		d[lo] = d[j];
+		d[j] = temp;
+		return j;
+	}
+
 	public static void main(String[] args) {
 		
 		double d1[] = {34, 26, 74, 5, 20, 11};
@@ -145,6 +173,16 @@ public class Sort {
 
 		System.out.print("归并排序：");
 		for (double num : d5) {
+			System.out.print(num + " ");
+		}
+		System.out.println();
+
+
+		double d6[] = {34, 26, 74, 5, 20, 11};
+		bubbleSort(d6);
+
+		System.out.print("快速排序：");
+		for (double num : d6) {
 			System.out.print(num + " ");
 		}
 		System.out.println();
