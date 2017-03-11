@@ -104,12 +104,12 @@ public class Sort {
 
 	public static void quickSort(double[] d, int lo, int hi) {
 		if (lo >= hi)	return;
-		int p = partion(d, lo, hi);
+		int p = partition(d, lo, hi);
 		quickSort(d, lo, p - 1);
 		quickSort(d, p + 1, hi);
 	}
 
-	public static int partion(double[] d, int lo, int hi) {
+	public static int partition(double[] d, int lo, int hi) {
 		int i = lo, j = hi + 1;
 		double v = d[lo], temp;
 		while (true) {
