@@ -98,6 +98,7 @@ public class Sort {
 		}
 	}
 
+	/* 快速排序 */
 	public static void quickSort(double[] d) {
 		quickSort(d, 0, d.length - 1);
 	}
