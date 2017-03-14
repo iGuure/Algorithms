@@ -58,10 +58,10 @@ public class Sort {
 		while (h >= 1) {
 			for (int i = h; i < N; i++) {
 				for (int j = i; j >= h; j -= h) {
-					if (d[j] < d[j - 1]) {
+					if (d[j] < d[j - h]) {
 						temp = d[j];
-						d[j] = d[j - 1];
-						d[j - 1] = temp;
+						d[j] = d[j - h];
+						d[j - h] = temp;
 					}
 				}
 			}
