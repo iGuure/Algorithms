@@ -160,7 +160,7 @@ public class Sort {
 
 
 		double d4[] = {34, 26, 74, 5, 20, 11};
-		bubbleSort(d4);
+		shellSort(d4);
 
 		System.out.print("希尔排序：");
 		for (double num : d4) {
@@ -170,7 +170,7 @@ public class Sort {
 
 
 		double d5[] = {34, 26, 74, 5, 20, 11};
-		bubbleSort(d5);
+		mergeSort(d5);
 
 		System.out.print("归并排序：");
 		for (double num : d5) {
@@ -180,7 +180,7 @@ public class Sort {
 
 
 		double d6[] = {34, 26, 74, 5, 20, 11};
-		bubbleSort(d6);
+		quickSort(d6);
 
 		System.out.print("快速排序：");
 		for (double num : d6) {
