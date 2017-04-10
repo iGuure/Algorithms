@@ -39,6 +39,7 @@ public class SortPractice {
 	}
 
 	public static int partition(double[] d, int lo, int hi) {
+		return 0;
 	}
 
 	public static void main(String[] args) {
