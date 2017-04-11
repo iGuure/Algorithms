@@ -3,15 +3,19 @@ import java.util.Collections;
 
 public class SortPractice20170411 {
 
+	public static void exch(double[] d, int i, int j) {
+		double temp;
+		temp = d[i];
+		d[i] = d[j];
+		d[j] = temp;
+	}
+
 	public static void seletionSort(double[] d) {
 		/* 请在这里默写：选择排序 */
-		double temp;
 		for (int i = 0; i < d.length; i++) {
 			for (int j = i + 1; j < d.length; j++) {
 				if (d[i] > d[j]) {
-					temp = d[i];
-					d[i] = d[j];
-					d[j] = temp;
+					exch(d, i, j);
 				}
 			}
 		}
@@ -19,13 +23,10 @@ public class SortPractice20170411 {
 
 	public static void insertionSort(double[] d) {
 		/* 请在这里默写：插入排序 */
-		double temp;
 		for (int i = 1; i < d.length; i++) {
 			for (int j = i; j > 0; j--) {
 				if (d[j - 1] > d[j]) {
-					temp = d[j];
-					d[j] = d[j - 1];
-					d[j - 1] = temp;
+					exch(d, j - 1, j);
 				}
 			}
 		}
@@ -33,13 +34,10 @@ public class SortPractice20170411 {
 
 	public static void bubbleSort(double[] d) {
 		/* 请在这里默写：冒泡排序 */
-		double temp;
 		for (int i = 0; i < d.length; i++) {
 			for (int j = d.length - 1; j > i; j--) {
 				if (d[j - 1] > d[j]) {
-					temp = d[j];
-					d[j] = d[j - 1];
-					d[j - 1] = temp;
+					exch(d, j - 1, j);
 				}
 			}
 		}
@@ -47,7 +45,6 @@ public class SortPractice20170411 {
 
 	public static void shellSort(double[] d) {
 		/* 请在这里默写：希尔排序 */
-		double temp;
 		int N = d.length;
 		int h = 1;
 		while (h < N / 3) {
@@ -57,9 +54,7 @@ public class SortPractice20170411 {
 			for (int i = h; i < N; i++) {
 				for (int j = i; j >= h; j -= h) {
 					if (d[j - h] > d[j]) {
-						temp = d[j - h];
-						d[j - h] = d[j];
-						d[j] = temp;
+						exch(d, j - h, j);
 					}
 				}
 			}
@@ -110,18 +105,14 @@ public class SortPractice20170411 {
 
 	public static int partition(double[] d, int lo, int hi) {
 		int i = lo, j = hi + 1;
-		double v = d[lo], temp;
+		double v = d[lo];
 		while (true) {
 			while (d[++i] < v)	if (i == hi)	break;
 			while (d[--j] > v)	if (j == lo)	break;
 			if (i >= j)	break;
-			temp = d[i];
-			d[i] = d[j];
-			d[j] = temp;
+			exch(d, i, j);
 		}
-		temp = d[lo];
-		d[lo] = d[j];
-		d[j] = temp;
+		exch(d, lo, j);
 		return j;
 	}
 

@@ -3,6 +3,13 @@ import java.util.Collections;
 
 public class SortPractice {
 
+	public static void exch(double[] d, int i, int j) {
+		double temp;
+		temp = d[i];
+		d[i] = d[j];
+		d[j] = temp;
+	}
+
 	public static void seletionSort(double[] d) {
 		/* 请在这里默写：选择排序 */
 	}

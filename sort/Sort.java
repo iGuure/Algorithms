@@ -2,16 +2,20 @@ import java.util.Collections;
 
 public class Sort {
 
+	public static void exch(double[] d, int i, int j) {
+		double temp;
+		temp = d[i];
+		d[i] = d[j];
+		d[j] = temp;
+	}
+
 	/* 选择排序 */
 	public static void seletionSort(double[] d) {
 		int N = d.length;
-		double temp;
 		for (int i = 0; i < N; i++) {
 			for (int j = i + 1; j < N; j++) {
 				if (d[i] > d[j]) {
-					temp = d[i];
-					d[i] = d[j];
-					d[j] = temp;
+					exch(d, i, j);
 				}
 			}
 		}
@@ -20,13 +24,10 @@ public class Sort {
 	/* 插入排序 */
 	public static void insertionSort(double[] d) {
 		int N = d.length;
-		double temp;
 		for (int i = 1; i < N; i++) {
 			for (int j = i; j > 0; j--) {
 				if (d[j] < d[j - 1]) {
-					temp = d[j];
-					d[j] = d[j - 1];
-					d[j - 1] = temp;
+					exch(d, j - 1, j);
 				}
 			}
 		}
@@ -35,13 +36,10 @@ public class Sort {
 	/* 冒泡排序 */
 	public static void bubbleSort(double[] d) {
 		int N = d.length;
-		double temp;
 		for (int i = 1; i < N; i++) {
 			for (int j = N - 1; j >= i; j--) {
 				if (d[j] < d[j - 1]) {
-					temp = d[j];
-					d[j] = d[j - 1];
-					d[j - 1] = temp;
+					exch(d, j - 1, j);
 				}
 			}
 		}
@@ -50,7 +48,6 @@ public class Sort {
 	/* 希尔排序 */
 	public static void shellSort(double[] d) {
 		int N = d.length;
-		double temp;
 		int h = 1;
 		while (h < N / 3) {
 			h = h * 3 + 1;
@@ -59,9 +56,7 @@ public class Sort {
 			for (int i = h; i < N; i++) {
 				for (int j = i; j >= h; j -= h) {
 					if (d[j] < d[j - h]) {
-						temp = d[j];
-						d[j] = d[j - h];
-						d[j - h] = temp;
+						exch(d, j - h, j);
 					}
 				}
 			}
@@ -112,18 +107,14 @@ public class Sort {
 
 	public static int partition(double[] d, int lo, int hi) {
 		int i = lo, j = hi + 1;
-		double v = d[lo], temp;
+		double v = d[lo];
 		while (true) {
 			while (d[++i] < v)	if (i == hi)	break;
 			while (d[--j] > v)	if (j == lo)	break;
 			if (i >= j)	break;
-			temp = d[i];
-			d[i] = d[j];
-			d[j] = temp;
+			exch(d, i, j);
 		}
-		temp = d[lo];
-		d[lo] = d[j];
-		d[j] = temp;
+		exch(d, lo, j);
 		return j;
 	}
 
